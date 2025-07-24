@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gallery {
+    width: 300px;
+    position: relative;
+}
+
+.cards {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    list-style: none;
+    width: 100%;
+}
+
+.cards li {
+    min-width: 100%;
+    padding: 10px;
+}
+
+.cards img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button#prev {
+    background-color: #444;
+    color: white;
+}
+
+/* Mute Button Container - Centered Below Prev/Next */
+.mute-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Mute/Unmute Button Style */
+#toggleSound {
+    padding: 10px 20px;
+    background-color: #0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+#toggleSound:hover {
+    background-color: #0c0;
+}

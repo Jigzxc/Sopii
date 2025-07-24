@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sopi Sop Sop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: url('./bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .text {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .qr img {
+      width: 250px;
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .or {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .button-container {
+      margin-top: 10px;
+    }
+
+    .continue-btn {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .continue-btn:hover {
+      background-color: #ff85c1;
+    }
+
+    @media (max-width: 600px) {
+      .text {
+        font-size: 1.2rem;
+      }
+
+      .qr img {
+        width: 200px;
+      }
+
+      .or {
+        font-size: 1rem;
+      }
+
+      .continue-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text">Hello Sopi!  Scan this QR Code to Continue</div>
+  <div class="qr">
+    <img src="qr_home.png" alt="QR to Home Page">
+  </div>
+  <div class="or">or</div>
+  <div class="button-container">
+    <a href="https://jigzxc.github.io/Sopii/try1/try.html">
+      <button class="continue-btn">Continue</button>
+    </a>
+  </div>
+</body>
+</html>

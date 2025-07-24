@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Typing Effect Letter</title>
+  <style>
+    body {
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .typing-container {
+      font-family: monospace;
+      font-size: 24px;
+      color: black;
+      max-width: 80%;
+      line-height: 1.5;
+      white-space: pre-line;
+      background-color: rgba(255,255,255,0.3);
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: black;
+      animation: blink 0.7s infinite;
+      vertical-align: bottom;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    #continueBtn {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button-wrapper {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="typing-container" id="typingText"></div>
+
+  <script>
+    const text = `Hello Sophia! Chesca here ! Your IT Girl. . . . 
+    As you requested, eto na po yung pinapagawa mo. . .
+    Hope you liked it ! Mwaaaaps 😘😘😘 `;
+
+    const container = document.getElementById('typingText');
+    let index = 0;
+
+    function typeNextChar() {
+      if (index < text.length) {
+        container.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeNextChar, 50);
+      } else {
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        container.appendChild(cursor);
+
+        // Add Continue button
+        const buttonWrapper = document.createElement('div');
+        buttonWrapper.className = 'button-wrapper';
+
+        const continueBtn = document.createElement('button');
+        continueBtn.id = 'continueBtn';
+        continueBtn.textContent = 'Continue';
+        continueBtn.onclick = () => {
+          window.location.href = 'https://jigzxc.github.io/Sopii/swiper-card-slider/index.html';
+        };
+
+        buttonWrapper.appendChild(continueBtn);
+        container.appendChild(buttonWrapper);
+
+        // Show button after slight delay
+        setTimeout(() => {
+          continueBtn.style.display = 'inline-block';
+        }, 500);
+      }
+    }
+
+    typeNextChar();
+  </script>
+
+</body>
+</html>

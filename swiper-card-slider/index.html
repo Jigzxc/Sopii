@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Swiper with Music</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio -->
+  <audio id="bgMusic" src="music.mp3" autoplay loop></audio>
+
+  <!-- Gallery Swiper -->
+  <div class="gallery">
+    <ul class="cards" id="cardList">
+      <li><img src="img1.png" alt="1"></li>
+      <li><img src="img2.png" alt="2"></li>
+      <li><img src="img3.png" alt="3"></li>
+      <li><img src="img4.png" alt="4"></li>
+      <li><img src="img5.png" alt="5"></li>
+      <li><img src="img6.png" alt="6"></li>
+      <li><img src="img7.png" alt="7"></li>
+      <li><img src="img8.png" alt="8"></li>
+      <li><img src="img9.png" alt="9"></li>
+      <li><img src="img10.png" alt="10"></li>
+      <li><img src="img11.png" alt="11"></li>
+      <li><img src="img12.png" alt="12"></li>
+      <li><img src="img13.png" alt="13"></li>
+      <li><img src="img14.png" alt="14"></li>
+      <li><img src="img15.png" alt="15"></li>
+      <li><img src="img17.png" alt="17"></li>
+      <li><img src="img24.jpg" alt="18"></li>
+      <li><img src="img19.png" alt="19"></li>
+      <li><img src="img20.png" alt="20"></li>
+      <li><img src="img21.png" alt="21"></li>
+      <li><img src="img18.png" alt="22"></li>
+      <li><img src="img25.jpg" alt="23"></li>
+      <li><img src="img26.jpg" alt="24"></li>
+      <li><img src="img27.png" alt="25"></li>
+      <li><img src="img23.jpg" alt="26"></li>
+      <li><img src="img22.jpg" alt="27"></li>
+    </ul>
+
+    <div class="buttons">
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+    </div>
+
+    <!-- Mute/Unmute Button Centered Below -->
+    <div class="mute-button-container">
+      <button id="toggleSound">🔊 Mute</button>
+    </div>
+  </div>
+
+  <script>
+    const cardList = document.getElementById('cardList');
+    const totalCards = cardList.children.length;
+    let currentIndex = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalCards;
+      cardList.style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      cardList.style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+
+    // Optional: Start music after user interaction if browser blocks autoplay
+    window.addEventListener('click', () => {
+      const bgMusic = document.getElementById('bgMusic');
+      if (bgMusic.paused) {
+        bgMusic.play();
+      }
+    });
+
+    // Mute/Unmute functionality
+    const toggleSoundBtn = document.getElementById('toggleSound');
+    const bgMusic = document.getElementById('bgMusic');
+
+    toggleSoundBtn.addEventListener('click', () => {
+      bgMusic.muted = !bgMusic.muted;
+      toggleSoundBtn.textContent = bgMusic.muted ? '🔇 Unmute' : '🔊 Mute';
+    });
+  </script>
+
+</body>
+</html>
